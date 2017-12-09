@@ -1,0 +1,70 @@
+//button
+$button-border-radius-base: 2px;
+
+/*按钮*/
+.btn-x{
+  line-height:1;
+  text-align:center;
+  cursor:pointer;
+  //-webkit-tap-highlight-color:transparent;
+
+  vertical-align: text-top;
+}
+a.btn-x{
+  display:inline-block;
+}
+/*按钮禁用状态*/
+.btn-x[disabled],.btn-x.disabled,
+.btn-x[disabled]:hover,.btn-x.disabled:hover
+{
+  background-color: #A1BFF6;
+  border-color: transparent;
+  cursor: not-allowed;
+}
+//按风格
+.btn-x-type1{
+  background: #4184F3;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+  border-radius: $button-border-radius-base;
+  //border: 1px solid transparent;
+
+  font-family: PingFangSC-Regular;
+  font-size: 20px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+}
+.btn-x-type1:hover{
+}
+.btn-x-type1:active,.btn-x-type1.active{
+
+}
+.btn-x-type2{
+  background: #FFFFFF;
+  border: 1px solid #4184F3;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+  border-radius: $button-border-radius-base;
+
+  font-family: PingFangSC-Regular;
+  font-size: 20px;
+  color: #4184F3;
+  letter-spacing: 0;
+}
+.btn-x-type2:hover{
+}
+.btn-x-type2:active,.btn-x-type2.active{
+}
+/*按钮尺寸*/
+.btn-x-default{
+  /*用padding撑起来，实现宽度自适应，注意上下左右各减去1px边框*/
+  padding:9px 27px;
+  min-width:116px;
+  min-height:40px;
+}
+.btn-x-sm{
+  padding:4px 25px;
+
+  font-family: PingFangSC-Medium;
+  font-size: 13.59px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+}

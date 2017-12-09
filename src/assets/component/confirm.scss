@@ -1,0 +1,64 @@
+//全局消息
+.overlay {
+  position: fixed;
+  z-index: 100000;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+//消息
+.overlay.message {
+  background-color: rgba(0, 0, 0, 0);
+  .popup {
+    width: 46%;
+    max-width: 300px;
+    background-color: rgba(25, 130, 251, 0.75);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+}
+//确认
+.overlay.confirm {
+  .popup{
+    position:relative;
+    //max-width:300px;
+    width:300px;
+    //height:220px;
+    min-height:220px;
+    padding: 22px 20px 15px;
+    text-align:center;
+
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.05), 0 1px 8px 0 rgba(0,0,0,0.08);
+    border-radius: 4px;
+
+    .hd{
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      color: #302C48;
+    }
+    .bd{
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color: #302C48;
+      letter-spacing: 0.07px;
+      line-height: 15.14px;
+    }
+    .ft{
+      position:absolute;
+      bottom:15px;
+      left:0;
+      width:100%;
+    }
+    .hd+.bd{
+      margin-top:4px;
+    }
+  }
+}

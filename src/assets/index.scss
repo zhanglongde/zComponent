@@ -1,0 +1,17 @@
+@import "./global/reset.scss";
+@import "./global/common.scss";
+
+.by-container{
+  width:1000px;
+  margin:auto;
+}
+.by-content{
+  padding:0 16px;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+
+input{
+  border:1px solid #ccc;
+}

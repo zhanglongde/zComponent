@@ -1,0 +1,56 @@
+@import "../global/variable";
+@import "../global/mixin";
+
+//时间选择
+.time-picker-box{
+  //position:relative;
+  color:#000;
+  ul,ul>li{
+    margin:0;
+    padding:0;
+  }
+  .ipt-wrapper,
+  .ipt-wrapper>input{
+    width:100%;
+    cursor:pointer;
+  }
+  .list-group{
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    position:absolute;
+    top:40px;
+    left:0;
+    z-index: 100;
+
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(0,0,0,.15);
+
+    &>ul+ul{
+      border-left:1px solid $border-color;
+    }
+  }
+  .list-group>ul{
+    height:160px;
+    width:50%;
+    &>li{
+      width:100%;
+      height:30px;
+      line-height:30px;
+      cursor:pointer;
+      padding-left:10px;
+      @include text-truncate();
+      font-size:14px;
+
+      &.selected:hover,
+      &.selected{
+        color:#fff;
+        background-color: $blue;
+      }
+      &:hover{
+        background: rgba(0,0,0,.08);
+        color: #161616;
+      }
+    }
+  }
+}

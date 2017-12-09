@@ -1,0 +1,29 @@
+/*//滑块*/
+input[type='range']{
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  height: 3px;
+  background-color: #E4E4E4;
+  border-radius: 100px;
+
+  -webkit-tap-highlight-color:transparent;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 28px;
+  height:28px;
+  border-radius:100%;
+  background-color: #fff;
+  border:none;
+  box-shadow: 0 5px 11px 0 rgba(0,0,0,0.15), 0 2px 3px 0 rgba(0,0,0,0.16), 0 3px 2px 0;
+  cursor: ew-resize;
+}
+input[type='range']:focus {
+  outline: none;
+}
