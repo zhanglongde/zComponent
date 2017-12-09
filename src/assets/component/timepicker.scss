@@ -1,5 +1,4 @@
-@import "../global/variable";
-@import "../global/mixin";
+@import "../global/index.scss";
 
 //时间选择
 .time-picker-box{
@@ -19,7 +18,7 @@
     display:flex;
     flex-direction: row;
     position:absolute;
-    top:40px;
+    top:100%;
     left:0;
     z-index: 100;
 

@@ -5,11 +5,15 @@ import Slider from './common/slider'
 import Switch from './common/switch'
 import DatePicker from './common/flatpickr'
 import TimePicker from './common/timepicker'
+import Badge from './common/badge'
+import Steps from './common/steps'
 
 const components = {
   Message,
   Confirm,
-  Slider
+  Slider,
+  Steps,
+  Badge
 }
 
 const zComponent = {

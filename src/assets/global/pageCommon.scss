@@ -1,0 +1,59 @@
+
+/*垂直滚动条*/
+.scroll-v{
+  overflow-y: auto !important;
+  overflow-x: hidden;
+}
+.scroll-v::-webkit-scrollbar{
+  width: 7px;
+  background-color: transparent;
+}
+.scroll-v::-webkit-scrollbar-track{
+  width:7px;
+  background-color: transparent;
+}
+.scroll-v::-webkit-scrollbar-thumb{
+  width:7px;
+
+  background-color: rgba(0, 0, 0, .2);
+  &:hover {
+    background-color: rgba(139, 139, 139, 0.73);
+  }
+  &:active {
+    background-color: rgb(139, 139, 139);
+  }
+  border-radius: 5px;
+}
+.scroll-v.no-transparent::-webkit-scrollbar-thumb{
+  width:7px;
+  height:30px;
+
+  background-color: rgba(139, 139, 139, 0.73);
+  border-radius: 5px;
+}
+
+//水平滚动条
+.scroll-h{
+  overflow-x: auto !important;
+  overflow-y: hidden;
+}
+.scroll-h::-webkit-scrollbar{
+  height: 7px;
+  background-color: transparent;
+}
+.scroll-h::-webkit-scrollbar-track{
+  height:7px;
+  background-color: transparent;
+}
+.scroll-h::-webkit-scrollbar-thumb{
+  height:7px;
+
+  background-color: rgba(0, 0, 0, .2);
+  &:hover {
+    background-color: rgba(139, 139, 139, 0.73);
+  }
+  &:active {
+    background-color: rgb(139, 139, 139);
+  }
+  border-radius: 5px;
+}

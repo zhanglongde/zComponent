@@ -1,4 +1,4 @@
-# z-m-component
+# z-component
 
 > vue.js component for PC
 
@@ -8,7 +8,7 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:8091
 npm run dev
 
 # build for production with minification

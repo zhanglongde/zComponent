@@ -32,6 +32,19 @@
       <zButton @click="testPluginMessage">测试message插件</zButton>
       <zButton @click="testPluginConfirm">测试confirm插件</zButton>
     </div>
+    <div class="by-content">
+      <!--<select>-->
+        <!--<option value="null">请选择</option>-->
+        <!--<option value="1">1</option>-->
+        <!--<option value="2">2</option>-->
+        <!--<option value="3">3</option>-->
+      <!--</select>-->
+      <steps :step="1" :stepsTitle="'请按照步骤完成所有设置'"></steps>
+    </div>
+    <div class="by-content">
+      <badge><i slot="icon" class="icon-tag"></i>test</badge>
+      <badge><i slot="icon" class="icon-heart"></i> test <span slot="before">hello</span></badge>
+    </div>
   </div>
 </template>
 <script>
