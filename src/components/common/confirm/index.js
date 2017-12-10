@@ -14,6 +14,7 @@ let Confirm = (options = {}) => {
   instance.title = options.title
   instance.content = options.content
   instance.isOKButton = typeof options.isOKButton === 'undefined' ? true : options.isOKButton
+  instance.isCancelButton = typeof options.isCancelButton === 'undefined' ? true : options.isCancelButton
   instance.okCallback = function () {
     if (typeof options.okCallback === 'function') {
       options.okCallback()

@@ -1,0 +1,32 @@
+.root-tree-container{
+  margin:0;
+  padding:0;
+  ul,li{
+    margin:0;
+    padding:0;
+  }
+  .children-tree-container{
+    margin-left:1em;
+  }
+}
+.tree-item-container{
+  &>.hd{
+    cursor:pointer;
+
+    &.active{
+      .name,span{
+        color:$component-active-bg;
+      }
+    }
+    .switch-icon-box{
+      min-width:10px;
+    }
+    .switch-icon-box+.name{
+      margin-left:6px;
+    }
+    .name{
+      @include text-truncate();
+      max-width:calc(100% - 10px)
+    }
+  }
+}

@@ -1,0 +1,48 @@
+//搜索下拉列表
+.select,
+.search-select{
+  $top_padding: 13px;
+  $height_input: 38px;
+  $height_li: 43px;
+  $bg_color: #fff;
+  position:relative;
+
+  &>.hd>input{
+    width:100%;
+    height:$height_input;
+    padding: 4px 16px;
+
+    background-color: $bg_color;
+    border: 1px solid #DBDBDB;
+    border-radius: 2px;
+    caret-color:#3E82F7;
+    &:focus{
+      border: 1px solid #4184F3;
+    }
+  }
+  &>ul{
+    margin:0;
+    padding:0;
+    position:absolute;
+    z-index:10;
+    left:0;
+    top: 100%;
+    width: 100%;
+
+    border-top:none;
+    border-radius:2px;
+    background-color: $bg_color;
+    box-shadow: 0 1px 6px rgba(0,0,0,.15);
+    li{
+      height:$height_li;
+      line-height:$height_li;
+      padding:0 16px;
+      cursor:pointer;
+      &.active,
+      &:hover{
+        color: #fff;
+        background-color: #4184F3;
+      }
+    }
+  }
+}

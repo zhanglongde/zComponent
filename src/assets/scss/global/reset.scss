@@ -7,8 +7,9 @@ button,label,input,select,textarea,
 img
 {   margin:0;padding:0;
     border:none;outline:none;
+    box-sizing: border-box;
 }
-/*button,input,select{border:none;outline:none;}*/
+//button,input,select{border:none;outline:none;}
 a{text-decoration: none;}
 dl,ol,ul,li{list-style: none;}
 table{border-collapse: collapse;border-spacing: 0;}

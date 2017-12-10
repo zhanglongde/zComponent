@@ -1,6 +1,8 @@
+import Button from './base/button'
+import {Select, Option} from './base/select'
+
 import Message from './common/message'
 import Confirm from './common/confirm'
-import Button from './base/button'
 import Slider from './common/slider'
 import Switch from './common/switch'
 import DatePicker from './common/flatpickr'
@@ -8,12 +10,22 @@ import TimePicker from './common/timepicker'
 import Badge from './common/badge'
 import Steps from './common/steps'
 
+import {List, ListItem} from './container/list'
+import {Tree, TreeItem} from './container/tree'
+import Transfer from './container/transfer'
+
+
 const components = {
   Message,
   Confirm,
   Slider,
   Steps,
-  Badge
+  Badge,
+  List,
+  ListItem,
+  Tree,
+  TreeItem,
+  Transfer
 }
 
 const zComponent = {
@@ -24,7 +36,11 @@ const zComponent = {
   zSwitch: Switch,
   zSlider: Slider,
   zDatePicker: DatePicker,
-  zTimePicker: TimePicker
+  zTimePicker: TimePicker,
+  zSelect: Select,
+  zOption: Option,
+  iTree: Tree,
+  iTreeItem: TreeItem
 }
 
 const install = function(Vue) {

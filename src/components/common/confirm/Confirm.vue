@@ -8,7 +8,10 @@
         <div class="hd-tittle">{{title}}</div>
       </div>
       <div class="bd">{{content}}</div>
-      <div class="ft"><button v-if="isOKButton" class="btn-x btn-x-default btn-x-type1" @click="okCallback">确定</button></div>
+      <div class="ft">
+        <button v-if="isOKButton" class="btn-x btn-x-default btn-x-type1" @click="okCallback">确定</button>
+        <button v-if="isCancelButton" class="btn-x btn-x-default btn-x-type2" @click="cancelCallback">取消</button>
+      </div>
     </div>
   </div>
 </template>
@@ -22,6 +25,10 @@
     },
     props: {
       isOKButton: {
+        type: Boolean,
+        default: true
+      },
+      isCancelButton: {
         type: Boolean,
         default: true
       },

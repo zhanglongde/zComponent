@@ -1,6 +1,14 @@
 <template>
   <div class="by-container">
     <div class="by-content">
+      <zButton @click="testPluginMessage">测试message插件</zButton>
+      <zButton @click="testPluginConfirm">测试confirm插件</zButton>
+    </div>
+    <div class="by-content">
+      <badge><i slot="icon" class="icon-tag"></i>test</badge>
+      <badge><i slot="icon" class="icon-heart"></i> test <span slot="before">hello</span></badge>
+    </div>
+    <div class="by-content">
       <div>
         日期选择
         <zDatePicker v-model="date"></zDatePicker><span>{{date}}</span>
@@ -29,24 +37,34 @@
       </div>
     </div>
     <div class="by-content">
-      <zButton @click="testPluginMessage">测试message插件</zButton>
-      <zButton @click="testPluginConfirm">测试confirm插件</zButton>
-    </div>
-    <div class="by-content">
-      <!--<select>-->
-        <!--<option value="null">请选择</option>-->
-        <!--<option value="1">1</option>-->
-        <!--<option value="2">2</option>-->
-        <!--<option value="3">3</option>-->
-      <!--</select>-->
+      <select>
+        <option value="null">请选择</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="33456">33</option>
+      </select>
+      <zSelect :items="fruits" v-model="fruitsSelected">
+        <zOption slot="item" slot-scope="{item, index, currentIndex, selectItem}" :item="item" :index="index" :currentIndex="currentIndex" :selectItem="selectItem" @selected="selectOptionSelected">
+          <i class="icon-heart"></i>{{item.text}}
+        </zOption>
+      </zSelect>
+      <div>选中:{{fruitsSelected}}</div>
       <steps :step="1" :stepsTitle="'请按照步骤完成所有设置'"></steps>
-      <ul class="list-group">
-        <li class="list-group-item" :class="[{'active': item.value === 'apple'}, {'disabled': item.value === 'orange'}]" v-for="(item, index) in fruits">{{index + 1}}.{{item.text}}</li>
-      </ul>
     </div>
     <div class="by-content">
-      <badge><i slot="icon" class="icon-tag"></i>test</badge>
-      <badge><i slot="icon" class="icon-heart"></i> test <span slot="before">hello</span></badge>
+      <List :items="fruits">
+        <ListItem slot="item" slot-scope="{item, index}" :item="item" :index="index" class="test" @selected="lisItemSelected">
+          {{index+1}}.{{item.text}}
+        </ListItem>
+      </List>
+      <List :items="fruits">
+        <ListItem slot="item" slot-scope="{item, index}" :item="item" :index="index" class="test" @selected="lisItemSelected">
+          {{item.text}}
+        </ListItem>
+      </List>
+    </div>
+    <div class="by-content">
+      <Tree :Data="treeData" :selectTreeItem="selectTreeItem" :selectedId="selectedId" :selectedDepth="selectedDepth"></Tree>
     </div>
   </div>
 </template>
@@ -63,10 +81,16 @@
         brightness: 50,
         checked: false,
         fruits: [
-          {value:'apple', text:'apple'},
-          {value:'banana', text:'banana'},
-          {value:'orange', text:'orange'},
-          {value:'pear', text:'pear'}]
+          {value: null, text:'请选择'},
+          {value:'apple-id', text:'apple', active: true},
+          {value:'banana-id', text:'banana', selected: true},
+          {value:'orange-id', text:'orange', disabled: true},
+          {value:'pear-id', text:'pear'}],
+        fruitsSelected: 'apple-id',
+        treeData: [{name: '中国', id: 1, children: [{name: '上海', id: 2, children: [{name: '花木路', id: 100}]}, {name: '北京', id: 3, children: [{name: '朝阳路', id: 300}]}, {name: '长沙', id: 4}]},
+          {name: '法国', id: 5, children: [{name: '巴黎', id: 6}, {name: '马赛', id: 7}, {name: '里昂', id: 8}]}],
+        selectedId: -1,
+        selectedDepth: -1
       }
     },
     methods: {
@@ -85,6 +109,17 @@
           title: 'title',
           content: '测试2'
         })
+      },
+      lisItemSelected (item) {
+        console.log('list item selected...', item)
+      },
+      selectOptionSelected (item) {
+        console.log('list item selected...', item)
+      },
+      selectTreeItem (item, depth) {
+        console.log(item, depth)
+        this.selectedId = item.id
+        this.selectedDepth = depth
       }
     }
   }
