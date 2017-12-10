@@ -1,76 +1,6 @@
 @import "global/index";
 @import "components/index";
 
-//徽章
-.badge-box{
-  display:inline-block;
-  max-width:300px;
-  height:26px;
-  padding:0 6px;
-  @include text-truncate();
-
-  background: #D3DAE7;
-  border-radius: 72.22px;
-
-  font-size: 16px;
-  color: #484B52;
-  letter-spacing: 0;
-  line-height: 26px;
-  span{
-    white-space: nowrap;
-    flex:0 1 auto;
-  }
-}
-//步骤条
-.steps-box{
-  .steps-bar{
-    .indicator-box{
-      display:flex;
-      justify-content: space-between;
-      position:relative;
-      z-index:2;
-    }
-    .indicator{
-      flex:0 0 auto;
-      width:24px;
-      height:24px;
-      border-radius:100%;
-
-      //font-family: Oswald;
-      font-size: 14px;
-      letter-spacing: 0;
-      line-height: 24px;
-      text-align:center;
-
-      background: #D3DAE7;
-      color: #FFFFFF;
-      &.active{
-        background: $component-active-bg;
-      }
-    }
-    .joint{
-      position:relative;
-      z-index:1;
-      top:12px;
-      height:1px;
-      width: 100%;
-      background-color: #D3DAE7;
-    }
-  }
-  .steps-title{
-    text-align:center;
-
-    font-family: PingFangSC-Regular;
-    font-size: 14px;
-    color: #4C4C4C;
-    letter-spacing: 0;
-    line-height: 18px;
-  }
-  .steps-bar+.steps-title{
-    margin-top:10px;
-  }
-}
-
 .by-container{
   width:1000px;
   margin:auto;
@@ -79,9 +9,4 @@
   padding:0 16px;
   margin-top:20px;
   margin-bottom:20px;
-}
-
-
-input{
-  border:1px solid #ccc;
 }

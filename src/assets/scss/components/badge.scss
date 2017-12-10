@@ -1,0 +1,20 @@
+//徽章
+.badge-box{
+  display:inline-block;
+  max-width:300px;
+  height:26px;
+  padding:0 6px;
+  @include text-truncate();
+
+  background: #D3DAE7;
+  border-radius: 72.22px;
+
+  font-size: 16px;
+  color: #484B52;
+  letter-spacing: 0;
+  line-height: 26px;
+  span{
+    white-space: nowrap;
+    flex:0 1 auto;
+  }
+}

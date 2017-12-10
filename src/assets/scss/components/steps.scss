@@ -1,0 +1,49 @@
+//步骤条
+.steps-box{
+  .steps-bar{
+    .indicator-box{
+      display:flex;
+      justify-content: space-between;
+      position:relative;
+      z-index:2;
+    }
+    .indicator{
+      flex:0 0 auto;
+      width:24px;
+      height:24px;
+      border-radius:100%;
+
+      //font-family: Oswald;
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: 24px;
+      text-align:center;
+
+      background: #D3DAE7;
+      color: #FFFFFF;
+      &.active{
+        background: $component-active-bg;
+      }
+    }
+    .joint{
+      position:relative;
+      z-index:1;
+      top:12px;
+      height:1px;
+      width: 100%;
+      background-color: #D3DAE7;
+    }
+  }
+  .steps-title{
+    text-align:center;
+
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #4C4C4C;
+    letter-spacing: 0;
+    line-height: 18px;
+  }
+  .steps-bar+.steps-title{
+    margin-top:10px;
+  }
+}
