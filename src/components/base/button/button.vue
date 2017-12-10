@@ -3,9 +3,7 @@
     <slot></slot>
   </button>
 </template>
-<style scoped lang="sass">
-  @import "../../../assets/component/button.scss";
-</style>
+
 <script>
   export default {
     name: 'zButton',

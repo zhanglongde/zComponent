@@ -1,9 +1,7 @@
 <template>
   <input type="range" min="0" max="100" step="1" value="0" @input="rangeChange" v-model="rangeData">
 </template>
-<style scoped lang="scss">
-@import "../../../assets/component/slider.scss";
-</style>
+
 <script>
   import $ from 'jquery'
   export default {
@@ -21,7 +19,7 @@
         let target = this.$el
         let val = v || $(target).val()
         let valPercentage = (val - $(target).attr('min')) / ($(target).attr('max') - $(target).attr('min'))
-        $(target).css('background-image', '-webkit-gradient(linear, left top, right top, ' + 'color-stop(' + valPercentage + ', #4184F3), ' + 'color-stop(' + valPercentage + ', #E4E4E4)' + ')')
+        $(target).css('background-image', '-webkit-gradient(linear, left top, right top, ' + 'color-stop(' + valPercentage + ', #007bff), ' + 'color-stop(' + valPercentage + ', #E4E4E4)' + ')')
       },
       rangeChange () {
         this.changeStyle()

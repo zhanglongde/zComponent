@@ -13,9 +13,6 @@
     </div>
   </div>
 </template>
-<style scoped lang="scss">
-  @import "../../../assets/component/timepicker.scss";
-</style>
 <script>
   export default {
     name: 'TimePicker',

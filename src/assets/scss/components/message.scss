@@ -18,7 +18,7 @@
   .popup {
     width: 46%;
     max-width: 300px;
-    background-color: rgba(25, 130, 251, 0.75);
+    background-color: $component-active-bg;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -40,12 +40,10 @@
     border-radius: 4px;
 
     .hd{
-      font-family: PingFangSC-Medium;
       font-size: 16px;
       color: #302C48;
     }
     .bd{
-      font-family: PingFangSC-Regular;
       font-size: 12px;
       color: #302C48;
       letter-spacing: 0.07px;

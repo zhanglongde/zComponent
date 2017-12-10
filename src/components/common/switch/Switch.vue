@@ -14,9 +14,6 @@
     <span class="switch-handle"></span>
   </label>
 </template>
-<style scoped lang="scss">
-  @import "../../../assets/component/_switches.scss";
-</style>
 <script>
 export default {
   model: {

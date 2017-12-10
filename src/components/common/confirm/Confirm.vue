@@ -12,9 +12,6 @@
     </div>
   </div>
 </template>
-<style scoped lang="scss">
-  @import "../../../assets/component/confirm.scss";
-</style>
 <script>
   export default {
     name: 'Confirm',

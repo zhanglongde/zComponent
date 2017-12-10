@@ -40,6 +40,9 @@
         <!--<option value="3">3</option>-->
       <!--</select>-->
       <steps :step="1" :stepsTitle="'请按照步骤完成所有设置'"></steps>
+      <ul class="list-group">
+        <li class="list-group-item" :class="[{'active': item.value === 'apple'}, {'disabled': item.value === 'orange'}]" v-for="(item, index) in fruits">{{index + 1}}.{{item.text}}</li>
+      </ul>
     </div>
     <div class="by-content">
       <badge><i slot="icon" class="icon-tag"></i>test</badge>
@@ -58,7 +61,12 @@
         shutdownTime: '18:00',
         voice: 50,
         brightness: 50,
-        checked: false
+        checked: false,
+        fruits: [
+          {value:'apple', text:'apple'},
+          {value:'banana', text:'banana'},
+          {value:'orange', text:'orange'},
+          {value:'pear', text:'pear'}]
       }
     },
     methods: {
@@ -68,7 +76,7 @@
       },
       testPluginMessage () {
         this.$message({
-          msg: '测试1'
+          content: '测试1'
         })
       },
       testPluginConfirm () {
