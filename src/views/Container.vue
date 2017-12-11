@@ -1,6 +1,9 @@
 <template>
   <div class="by-container">
     <div class="by-content">
+      <h1>容器组件</h1>
+    </div>
+    <div class="by-content">
       <h2>列表</h2>
       <div class="d-flex justify-content-between">
         <List :items="fruits">

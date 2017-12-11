@@ -1,6 +1,9 @@
 <template>
   <div class="by-container">
     <div class="by-content">
+      <h1>通用组件</h1>
+    </div>
+    <div class="by-content">
       <div>
         <h2>Switch 开关</h2>
         <label>是否</label>{{checked}}

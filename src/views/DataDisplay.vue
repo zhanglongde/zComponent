@@ -13,8 +13,13 @@
       <badge><i slot="icon" class="icon-heart"></i> test <span slot="before">hello</span></badge>
     </div>
     <div class="by-content">
+      <h2>步骤条</h2>
+      <steps :step="2" :stepNum="5" :stepsTitle="'请按照步骤完成所有设置'"></steps>
+    </div>
+    <div class="by-content">
       <h2>消息</h2>
       <zButton @click="testPluginMessage">测试message插件</zButton>
+      <zButton @click="testPluginAlert">测试alert插件</zButton>
       <zButton @click="testPluginConfirm">测试confirm插件</zButton>
     </div>
   </div>
@@ -28,16 +33,21 @@
     methods: {
       testPluginMessage () {
         this.$message({
-          content: '测试1'
+          content: '测试message'
+        })
+      },
+      testPluginAlert () {
+        this.$alert({
+          title: 'title',
+          content: '测试alert'
         })
       },
       testPluginConfirm () {
-        console.log('test')
         this.$confirm({
           title: 'title',
-          content: '测试2'
+          content: '测试confirm'
         })
-      },
+      }
     }
   }
 </script>

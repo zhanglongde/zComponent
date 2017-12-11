@@ -1,6 +1,9 @@
 <template>
   <div class="by-container">
     <div class="by-content">
+      <h1>数据输入</h1>
+    </div>
+    <div class="by-content">
       <h2>表单元素</h2>
       <div class="row">
         <h3>单选</h3>
@@ -32,7 +35,7 @@
     <div class="by-content">
       <h2>日期 时间</h2>
       <div class="row">
-        <h3>日期选择</h3>
+        <h3>日期</h3>
         <zDatePicker v-model="date"></zDatePicker><span>{{date}}</span>
       </div>
       <div class="row">

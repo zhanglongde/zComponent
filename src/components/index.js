@@ -7,6 +7,7 @@ import Checkbox from './base/checkbox'
 import {Select, Option} from './base/select'
 
 import Message from './data-display/message'
+import Alert from './data-display/alert'
 import Confirm from './data-display/confirm'
 import Slider from './common/slider'
 import Switch from './common/switch'
@@ -22,6 +23,7 @@ import Transfer from './container/transfer'
 
 const components = {
   Message,
+  Alert,
   Confirm,
   Slider,
   Steps,
@@ -56,8 +58,9 @@ const install = function(Vue) {
     Vue.component(key, zComponent[key]);
   });
 
-  Vue.prototype.$confirm = Confirm
   Vue.prototype.$message = Message
+  Vue.prototype.$alert = Alert
+  Vue.prototype.$confirm = Confirm
 }
 
 export default install
