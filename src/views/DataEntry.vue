@@ -21,7 +21,7 @@
           <option value="33456">33</option>
         </select>
         <zSelect :items="fruits" v-model="fruitsSelected">
-          zOption
+          <!--<zOption slot="first" slot-scope="{index, selectItem}" firstValue="null" :index="index" :selectItem="selectItem">请选择</zOption>-->
           <zOption slot="item" slot-scope="{item, index, currentIndex, selectItem}" :item="item" :index="index" :currentIndex="currentIndex" :selectItem="selectItem" @selected="selectOptionSelected">
             <i class="icon-heart"></i>{{item.text}}
           </zOption>
@@ -47,13 +47,6 @@
     </div>
     <div class="by-content">
       <div>
-        <h2>Switch 开关</h2>
-        <label>是否</label>{{checked}}
-        <zSwitch on="是" off="否" size="md" v-model="isAutoSwitch" :checked="checked" @change="switchChange" type="switch switch-text switch-pill switch-info"></zSwitch>
-      </div>
-    </div>
-    <div class="by-content">
-      <div>
         <h2>滑条</h2>
         <div>音量</div>
         <zSlider v-model="voice"></zSlider>
@@ -65,18 +58,16 @@
 </template>
 <script>
   export default {
-    name: 'Index',
+    name: 'DataEntry',
     data () {
       return {
         date: new Date().toString(),
-        isAutoSwitch: false,
         bootTime: '08:00',
         shutdownTime: '18:00',
         voice: 50,
         brightness: 50,
-        checked: false,
         fruits: [
-          {value: null, text:'请选择'},
+//          {value: null, text:'请选择'},
           {value:'apple-id', text:'apple', active: true},
           {value:'banana-id', text:'banana', selected: true},
           {value:'orange-id', text:'orange', disabled: true},
@@ -89,10 +80,6 @@
       }
     },
     methods: {
-      switchChange (e) {
-        console.log('switchChange...')
-        console.log(e)
-      },
       selectOptionSelected (item) {
         console.log('list item selected...', item)
       }

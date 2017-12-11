@@ -3,34 +3,44 @@
     <div class="hd">
       <input type="text" @focus="showList" @keyup.stop="keyup" @keydown.stop="keydown" v-model="iptContent">
     </div>
-    <ul class="list-group" v-if="isList">
+    <ul class="list-group" v-if="isList" ref="list">
+      <slot name="first" :index="-1" :selectItem="selectItem"></slot>
       <slot name="item" v-for="(item, index) in items" :item="item" :index="index" :currentIndex="currentIndex" :selectItem="selectItem"></slot>
     </ul>
   </div>
 </template>
 
 <script>
-  import $ from 'jquery'
   export default {
     name: 'Select',
     data () {
       return {
         isList: false,
-        currentIndex: 0,
+        currentIndex: this.getIndexByValue(this.value),
         iptContent:''
       }
     },
-//    model: {
-//      prop: 'selected',
-//      event: 'input'
-//    },
     props: {
-      items: Array,
+      items: {
+        type: Array,
+        default: []
+      },
       value: {
         default: ''
+      },
+      firstValue: {
+        default: null
+      }
+    },
+    watch: {
+      value (newValue) {
+        this.currentIndex = this.getIndexByValue(newValue)
       }
     },
     methods: {
+      getIndexByValue (value) {
+        return this.items.findIndex(x => x.value === value)
+      },
       showList () {
         this.isList = true
       },
@@ -38,8 +48,13 @@
         this.isList = false
       },
       selectItem (currentIndex) {
-        this.$emit('input', this.items[currentIndex].value)
-        this.iptContent = this.items[currentIndex].text
+        if (currentIndex >= 0) {
+          this.$emit('input', this.items[currentIndex].value)
+          this.iptContent = this.items[currentIndex].text
+        } else {
+          this.$emit('input', this.firstValue)
+          this.iptContent = this.$refs.list.firstChild.innerHTML
+        }
         this.hideList()
       },
       keyup (e) {
@@ -58,7 +73,7 @@
           case 9: // Tab
           case 13: // ENTER
             this.selectItem(this.currentIndex)
-            $(e.target).blur()
+            e.target.blur()
             break
           default:
             break

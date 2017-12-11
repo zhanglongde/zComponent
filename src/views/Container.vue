@@ -19,7 +19,7 @@
 </template>
 <script>
   export default {
-    name: 'Index',
+    name: 'Container',
     data () {
       return {
         fruits: [
