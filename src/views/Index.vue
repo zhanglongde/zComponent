@@ -3,6 +3,7 @@
     <div class="by-content">
       <zButton @click="testPluginMessage">测试message插件</zButton>
       <zButton @click="testPluginConfirm">测试confirm插件</zButton>
+      <Icon type="fa fa-heart" size="20" color="#58a"></Icon>
     </div>
     <div class="by-content">
       <badge><i slot="icon" class="icon-tag"></i>test</badge>
@@ -37,6 +38,15 @@
       </div>
     </div>
     <div class="by-content">
+      <div>表单元素</div>
+      <div>
+        <Radio name="test">A</Radio>
+        <Radio name="test">B</Radio>
+      </div>
+      <div>
+        <Checkbox name="test2">AA</Checkbox>
+        <Checkbox name="test2">BB</Checkbox>
+      </div>
       <select>
         <option value="null">请选择</option>
         <option value="1">1</option>

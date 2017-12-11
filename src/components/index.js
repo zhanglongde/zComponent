@@ -1,4 +1,9 @@
 import Button from './base/button'
+import Icon from './base/icon'
+import Input from './base/input'
+import Textarea from './base/textarea'
+import Radio from './base/radio'
+import Checkbox from './base/checkbox'
 import {Select, Option} from './base/select'
 
 import Message from './common/message'
@@ -11,7 +16,7 @@ import Badge from './common/badge'
 import Steps from './common/steps'
 
 import {List, ListItem} from './container/list'
-import {Tree, TreeItem} from './container/tree'
+import Tree from './container/tree'
 import Transfer from './container/transfer'
 
 
@@ -24,8 +29,10 @@ const components = {
   List,
   ListItem,
   Tree,
-  TreeItem,
-  Transfer
+  Transfer,
+  Icon,
+  Radio,
+  Checkbox
 }
 
 const zComponent = {
@@ -40,7 +47,8 @@ const zComponent = {
   zSelect: Select,
   zOption: Option,
   iTree: Tree,
-  iTreeItem: TreeItem
+  iInput: Input,
+  iTextarea: Textarea
 }
 
 const install = function(Vue) {

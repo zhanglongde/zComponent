@@ -2,8 +2,8 @@
   <li class="tree-item-container">
     <div class="hd d-flex align-items-center" :class="[{'active': isCurrentItem(item)}]" @click="toggleOpen">
       <div v-if="isHasChildren" class="switch-icon-box">
-        <span v-if="isOpen" class="icon-caret-down"></span>
-        <span v-else class="icon-caret-right"></span>
+        <span v-if="isOpen" class="fa fa-caret-down"></span>
+        <span v-else class="fa fa-caret-right"></span>
       </div>
      <div v-else class="switch-icon-box">
        <span>&nbsp;</span>

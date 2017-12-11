@@ -1,0 +1,36 @@
+.checkbox{
+  position:relative;
+  // radio
+  input[type=checkbox]{
+    position:relative;
+    -webkit-appearance: none;
+    outline:none;
+    cursor: pointer;
+    vertical-align: middle;
+    width:15px;
+    height:15px;
+
+    display:none;
+  }
+  input[type=checkbox]~.not-checked{
+    display:inline-block;
+  }
+  input[type=checkbox]~.checked{
+    display:none;
+  }
+  input[type=checkbox]:checked~.checked{
+    display:inline-block;
+  }
+  input[type=checkbox]:checked~.not-checked{
+    display:none;
+  }
+  input[type=checkbox]~span{
+    margin-left:5px;
+    vertical-align: middle;
+  }
+  i{
+    cursor:pointer;
+    vertical-align: middle;
+  }
+}
+

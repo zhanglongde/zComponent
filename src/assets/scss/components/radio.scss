@@ -1,0 +1,36 @@
+.radio{
+  position:relative;
+  // radio
+  input[type=radio]{
+    position:relative;
+    -webkit-appearance: none;
+    outline:none;
+    cursor: pointer;
+    vertical-align: middle;
+    width:15px;
+    height:15px;
+
+    display:none;
+  }
+  input[type=radio]~.not-checked{
+    display:inline-block;
+  }
+  input[type=radio]~.checked{
+    display:none;
+  }
+  input[type=radio]:checked~.checked{
+    display:inline-block;
+  }
+  input[type=radio]:checked~.not-checked{
+    display:none;
+  }
+  input[type=radio]~span{
+    margin-left:5px;
+    vertical-align: middle;
+  }
+  i{
+    cursor:pointer;
+    vertical-align: middle;
+  }
+}
+
