@@ -7,6 +7,24 @@
 }
 .by-content{
   padding:0 16px;
-  margin-top:20px;
-  margin-bottom:20px;
+  margin-top:30px;
+  margin-bottom:30px;
+}
+
+.by-content>h2{
+  padding-bottom:6px;
+}
+.by-content>.row+.row{
+  margin-top:10px;
+}
+
+.component-list{
+  &>li{
+    cursor:pointer;
+    width:20%;
+    height:50px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
