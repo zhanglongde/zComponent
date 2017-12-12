@@ -7,6 +7,7 @@ import Checkbox from './base/checkbox'
 import {Select, Option} from './base/select'
 
 import Message from './data-display/message'
+import Banner from './data-display/banner'
 import Alert from './data-display/alert'
 import Confirm from './data-display/confirm'
 import Slider from './common/slider'
@@ -23,6 +24,7 @@ import Transfer from './container/transfer'
 
 const components = {
   Message,
+  Banner,
   Alert,
   Confirm,
   Slider,
@@ -48,9 +50,9 @@ const zComponent = {
   zTimePicker: TimePicker,
   zSelect: Select,
   zOption: Option,
-  iTree: Tree,
-  iInput: Input,
-  iTextarea: Textarea
+  zTree: Tree,
+  zInput: Input,
+  zTextarea: Textarea
 }
 
 const install = function(Vue) {
@@ -59,6 +61,7 @@ const install = function(Vue) {
   });
 
   Vue.prototype.$message = Message
+  Vue.prototype.$banner = Banner
   Vue.prototype.$alert = Alert
   Vue.prototype.$confirm = Confirm
 }

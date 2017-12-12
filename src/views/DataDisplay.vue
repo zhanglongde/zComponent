@@ -19,6 +19,7 @@
     <div class="by-content">
       <h2>消息</h2>
       <zButton @click="testPluginMessage">测试message插件</zButton>
+      <zButton @click="testPluginBanner">测试banner插件</zButton>
       <zButton @click="testPluginAlert">测试alert插件</zButton>
       <zButton @click="testPluginConfirm">测试confirm插件</zButton>
     </div>
@@ -34,6 +35,14 @@
       testPluginMessage () {
         this.$message({
           content: '测试message'
+        })
+      },
+      testPluginBanner () {
+        this.$banner({
+          content: '测试banner',
+          callback: function () {
+            console.log('end...')
+          }
         })
       },
       testPluginAlert () {
