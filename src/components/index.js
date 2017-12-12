@@ -21,14 +21,15 @@ import Badge from './data-display/badge'
 import Steps from './data-display/steps'
 
 import {List, ListItem} from './container/list'
-import Tree from './container/tree'
 import Transfer from './container/transfer'
+import Tree from './container/tree'
+import TreeSelect from './container/tree-select'
 
 const components = {
   Message,
   Banner,
   Toast,
-  // Toastr,
+  Toastr,
   Alert,
   Confirm,
   Slider,
@@ -37,6 +38,7 @@ const components = {
   List,
   ListItem,
   Tree,
+  TreeSelect,
   Transfer,
   Icon,
   Radio,

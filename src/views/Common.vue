@@ -12,7 +12,10 @@
     </div>
     <div class="by-content">
       <h2>树形结构</h2>
+      <h3>单选</h3>
       <Tree :Data="treeData" :selectTreeItem="selectTreeItem" :selectedId="selectedId" :selectedDepth="selectedDepth"></Tree>
+      <h3>多选</h3>
+      <TreeSelect :Data="treeData" name="test"></TreeSelect>
     </div>
   </div>
 </template>

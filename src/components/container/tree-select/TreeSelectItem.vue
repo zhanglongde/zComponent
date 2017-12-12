@@ -8,17 +8,20 @@
      <div v-else class="switch-icon-box">
        <span>&nbsp;</span>
      </div>
-      <span class="name" @click.stop="selectItem(item)">{{item.name}}</span>
+      <label @click.stop="selectItem(item)">
+        <!--<Checkbox :name="name" :value=""></Checkbox><span class="name">{{item.name}}</span>-->
+        <input :name="name" :value="depth + '-' + item.id" type="checkbox"/><span class="name">{{item.name}}</span>
+      </label>
     </div>
     <ul v-if="isOpen && isHasChildren" class="children-tree-container">
-      <tree-item v-for="itemData in item.children" :depth="depth+1" :item="itemData" :key="itemData.id" :selectTreeItem="selectTreeItem" :selectedId="selectedId" :selectedDepth="selectedDepth"></tree-item>
+      <tree-select-item v-for="itemData in item.children" :depth="depth+1" :item="itemData" :key="itemData.id" :name="name"></tree-select-item>
     </ul>
   </li>
 </template>
 
 <script>
   export default {
-    name: 'TreeItem',
+    name: 'TreeSelectItem',
     data () {
       return {
         isOpen: false
@@ -36,14 +39,8 @@
       depth: {
         type: Number
       },
-      selectedId: {
-        type: Number
-      },
-      selectedDepth: {
-        type: Number
-      },
-      selectTreeItem: {
-        type: Function
+      name: {
+        default: ''
       }
     },
     methods: {
@@ -53,11 +50,11 @@
         }
         this.isOpen = !this.isOpen
       },
-      selectItem (item) {
-        this.selectTreeItem(item, this.depth)
-      },
       isCurrentItem (item) {
         return (this.selectedId === item.id) && (this.selectedDepth === this.depth)
+      },
+      selectItem (item) {
+        console.log(item)
       }
     }
   }

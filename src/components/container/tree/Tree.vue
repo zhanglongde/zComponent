@@ -7,7 +7,7 @@
 <script>
   import TreeItem from './TreeItem.vue'
   export default {
-    name: 'tree',
+    name: 'Tree',
     data () {
       return {
       }
