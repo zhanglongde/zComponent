@@ -8,7 +8,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
     .toast-title {
         font-weight: bold;
     }

@@ -90,7 +90,6 @@
         })
       },
       testPluginToastr () {
-        console.log(this.$toastr)
         this.$toastr('success', 'i am a toastr success', 'hello')
 //        this.$toastr.info({
 //           message:'i am a toastr success',
@@ -109,7 +108,7 @@
           { title: 'Heyy',
             msg: '',
             clickClose: false,
-            timeout: 1000,
+            timeout: 10000,
             position: 'toast-top-left',
             type: 'info' })
       },

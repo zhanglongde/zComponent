@@ -9,7 +9,7 @@ import {Select, Option} from './base/select'
 import Message from './data-display/message'
 import Banner from './data-display/banner'
 import Toast from './data-display/toast'
-// import Toastr from './data-display/toastr'
+import Toastr from './data-display/toastr'
 import Alert from './data-display/alert'
 import Confirm from './data-display/confirm'
 
@@ -66,7 +66,7 @@ const install = function(Vue) {
 
   Vue.prototype.$message = Message
   Vue.prototype.$banner = Banner
-  // Vue.prototype.$toastr = Toastr
+  Vue.prototype.$toastr = Toastr
   Vue.prototype.$alert = Alert
   Vue.prototype.$confirm = Confirm
 }
