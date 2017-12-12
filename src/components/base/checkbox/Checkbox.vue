@@ -9,7 +9,6 @@
     props: {
       wrapClasses: String,
       value: {
-        type: Boolean,
         default: false
       },
       name: String,
