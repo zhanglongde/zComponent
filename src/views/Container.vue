@@ -18,6 +18,20 @@
         </List>
       </div>
     </div>
+    <div class="by-content">
+      <button @click="toggleModal">Toggle Modal</button>
+      <zModal :onOff="onOff">
+        <div class="modal-header">
+          header
+        </div>
+        <div class="modal-body">
+          body
+        </div>
+        <div class="modal-footer">
+          footer
+        </div>
+      </zModal>
+    </div>
   </div>
 </template>
 <script>
@@ -31,12 +45,16 @@
           {value:'banana-id', text:'banana', selected: true},
           {value:'orange-id', text:'orange', disabled: true},
           {value:'pear-id', text:'pear'}],
-        fruitsSelected: 'apple-id'
+        fruitsSelected: 'apple-id',
+        onOff: false
       }
     },
     methods: {
       lisItemSelected (item) {
         console.log('list item selected...', item)
+      },
+      toggleModal () {
+        this.onOff = !this.onOff
       }
     }
   }

@@ -21,11 +21,15 @@ import Badge from './data-display/badge'
 import Steps from './data-display/steps'
 
 import {List, ListItem} from './container/list'
+import Modal from './container/modal'
 import Transfer from './container/transfer'
 import Tree from './container/tree'
 import TreeSelect from './container/tree-select'
 
 const components = {
+  Icon,
+  Radio,
+  Checkbox,
   Message,
   Banner,
   Toast,
@@ -40,9 +44,7 @@ const components = {
   Tree,
   TreeSelect,
   Transfer,
-  Icon,
-  Radio,
-  Checkbox
+  Modal
 }
 
 const zComponent = {
@@ -58,7 +60,8 @@ const zComponent = {
   zOption: Option,
   zTree: Tree,
   zInput: Input,
-  zTextarea: Textarea
+  zTextarea: Textarea,
+  zModal: Modal
 }
 
 const install = function(Vue) {
