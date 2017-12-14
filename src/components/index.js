@@ -15,10 +15,12 @@ import Confirm from './data-display/confirm'
 
 import Slider from './common/slider'
 import Switch from './common/switch'
+import Circle from './common/circle'
 import DatePicker from './common/flatpickr'
 import TimePicker from './common/timepicker'
 import Badge from './data-display/badge'
 import Steps from './data-display/steps'
+import Tooltip from './data-display/tooltip'
 
 import {List, ListItem} from './container/list'
 import Modal from './container/modal'
@@ -44,7 +46,8 @@ const components = {
   Tree,
   TreeSelect,
   Transfer,
-  Modal
+  Modal,
+  Tooltip
 }
 
 const zComponent = {
@@ -61,7 +64,8 @@ const zComponent = {
   zTree: Tree,
   zInput: Input,
   zTextarea: Textarea,
-  zModal: Modal
+  zModal: Modal,
+  zCircle: Circle
 }
 
 const install = function(Vue) {

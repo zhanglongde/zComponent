@@ -6,7 +6,7 @@
     <div class="by-content">
       <div>
         <h2>Switch 开关</h2>
-        <label>是否</label>{{checked}}
+        <label>是否</label>{{isAutoSwitch}}
         <zSwitch on="是" off="否" size="md" v-model="isAutoSwitch" :checked="checked" @change="switchChange" type="switch switch-text switch-pill switch-info"></zSwitch>
       </div>
     </div>
@@ -16,6 +16,20 @@
       <Tree :Data="treeData" :selectTreeItem="selectTreeItem" :selectedId="selectedId" :selectedDepth="selectedDepth"></Tree>
       <h3>多选</h3>
       <TreeSelect :Data="treeData" name="test"></TreeSelect>
+    </div>
+    <div class="by-content">
+      <h2>图表结构</h2>
+      <zCircle :percent="80">
+        <span style="font-size:24px">80%</span>
+      </zCircle>
+      <zCircle :percent="100" stroke-color="#5cb85c">
+        <Icon type="fa fa-check" size="30" style="color:#5cb85c"></Icon>
+      </zCircle>
+      <zCircle :percent="35" stroke-color="#ff5500">
+        <span class="demo-Circle-inner">
+            <Icon type="fa fa-remove" size="30" style="color:#ff5500"></Icon>
+        </span>
+      </zCircle>
     </div>
   </div>
 </template>

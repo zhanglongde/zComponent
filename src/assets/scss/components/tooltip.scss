@@ -1,0 +1,82 @@
+$zindex-tooltip-caret: 110;
+$zindex-tooltip: 111;
+
+//提示框
+.tooltip-container-wrapper{
+  position:relative;
+  display:inline-block;
+  .tooltip-container{
+    left:50%;
+    visibility: hidden;
+    opacity: 0;
+
+    -webkit-transform:translateX(-50%) translateY(8px);
+    -moz-transform:translateX(-50%) translateY(8px);
+    transform:translateX(-50%) translateY(8px);
+
+    -webkit-transition: 0.4s ease;
+    -moz-transition: 0.4s ease;
+    transition: 0.4s ease;
+  }
+  &:hover .tooltip-container{
+    visibility: visible;
+    opacity: 1;
+    left:50%;
+
+    -moz-transform:translateX(-50%);
+    -webkit-transform:translateX(-50%);
+    transform:translateX(-50%);
+  }
+}
+.tooltip-container{
+  position:absolute;
+  z-index:$zindex-tooltip;
+  padding:12px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.17);
+  border-radius: 3.16px;
+  top:100%;
+
+  //&.up:before{
+  //  content:'';
+  //  display:inline-block;
+  //  width:12px;
+  //  height:12px;
+  //
+  //  position:absolute;
+  //  z-index:@zindex-tooltip-caret;
+  //  top:6px;left:50%;
+  //  transform:translate(-50%,-100%) rotate(45deg);
+  //
+  //  background-color: #fff;
+  //}
+  .tooltip-item{
+    padding:0 18px;
+    font-size: 12px;
+    color: #757575;
+    letter-spacing: 0.6px;
+    line-height: 12px;
+    white-space:nowrap;
+  }
+}
+.tooltip-container-s{
+  padding:4px 0;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.17);
+  border-radius: 2.52px;
+
+  &.up:before{
+    content:'';
+    display:inline-block;
+    width:10px;
+    height:10px;
+
+    position:absolute;
+    z-index:$zindex-tooltip-caret;
+    top:5px;
+    left:50%;
+    transform:translate(-50%,-100%) rotate(45deg);
+
+    background-color: #fff;
+    //box-shadow: 0 2px 3px 0 rgba(0,0,0,0.17);
+  }
+}

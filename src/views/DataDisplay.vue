@@ -44,6 +44,11 @@
       <button type="button" name="button" @click="closeAll">Close all</button>
       <toast ref='toast'></toast>
     </div>
+    <div class="by-content">
+      <Tooltip content="Tooltip Test">
+        <zButton>Tooltip down</zButton>
+      </Tooltip>
+    </div>
   </div>
 </template>
 <script>
