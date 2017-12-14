@@ -17,7 +17,8 @@
   bottom: 0;
   left: 0;
   z-index: $zindex-modal;
-  display: none;
+  //display: none;
+  visibility: hidden;
   overflow: hidden;
   // Prevent Chrome on Windows from adding a focus outline. For details, see
   // https://github.com/twbs/bootstrap/pull/10951.
@@ -30,6 +31,13 @@
     overflow-x: hidden;
     overflow-y: auto;
   }
+  &.show{
+    visibility: visible;
+  }
+  &.three-d{
+    backface-visibility: hidden;
+    perspective: 1300px;
+  }
 }
 
 // Shell div to position the modal with bottom padding
@@ -39,6 +47,7 @@
   margin: $modal-dialog-margin;
   // allow clicks to pass through for custom click handling to close modal
   pointer-events: none;
+  z-index: $zindex-modal-dialog;
 
   // When fading in the modal, animate it to slide down
   .modal.fade & {
@@ -47,6 +56,16 @@
   }
   .modal.show & {
     transform: translate(0, 0);
+  }
+  .modal.three-d & {
+    transition: .5s ease-in-out;
+    opacity: 0;
+    transform-style: preserve-3d;
+    transform: rotateY(-70deg);
+  }
+  .modal.three-d.show & {
+    opacity: 1;
+    transform: rotateY(0);
   }
 }
 
@@ -83,9 +102,26 @@
   z-index: $zindex-modal-backdrop;
   background-color: $modal-backdrop-bg;
 
+  //将背景层与内容层动画分离
   // Fade for backdrop
-  &.fade { opacity: 0; }
-  &.show { opacity: $modal-backdrop-opacity; }
+  //&.fade { opacity: 0; }
+  //&.show { opacity: $modal-backdrop-opacity; }
+
+  //将背景层与内容层动画统一
+  .modal>&, // 没有动画
+  .modal.fade>&,
+  .modal.three-d>&{
+    visibility: hidden;
+    opacity: 0;
+  }
+  .modal.show>&,// 没有动画
+  .modal.fade.show>&,
+  .modal.three-d.show>&{
+    opacity: $modal-backdrop-opacity;
+  }
+  .modal.show>&{
+    visibility: visible;
+  }
 }
 
 // Modal header

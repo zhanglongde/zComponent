@@ -19,8 +19,15 @@
       </div>
     </div>
     <div class="by-content">
-      <button @click="toggleModal">Toggle Modal</button>
-      <zModal :onOff="onOff">
+      <div>
+        <button @click="toggleModal">Toggle Modal</button>
+        <button @click="toggleCenteredModal">Toggle Centered Modal</button>
+      </div>
+      <div>
+        <button @click="toggleTransitionNoneModal">Toggle TransitionNone Modal</button>
+        <button @click="toggleTransition3dModal">Toggle Transition3d Modal</button>
+      </div>
+      <Modal v-model="onOff">
         <div class="modal-header">
           header
         </div>
@@ -30,7 +37,40 @@
         <div class="modal-footer">
           footer
         </div>
-      </zModal>
+      </Modal>
+      <Modal v-model="onOffCentered" :isCentered="true">
+        <div class="modal-header">
+          header
+        </div>
+        <div class="modal-body">
+          body centered
+        </div>
+        <div class="modal-footer">
+          footer
+        </div>
+      </Modal>
+      <Modal v-model="onOffTransitionNone" :isCentered="true" :transition="''">
+        <div class="modal-header">
+          header2
+        </div>
+        <div class="modal-body">
+          body transition none
+        </div>
+        <div class="modal-footer">
+          footer
+        </div>
+      </Modal>
+      <Modal v-model="onOffTransition3d" :isCentered="true" transition="three-d">
+        <div class="modal-header">
+          header2
+        </div>
+        <div class="modal-body">
+          body transition none
+        </div>
+        <div class="modal-footer">
+          footer
+        </div>
+      </Modal>
     </div>
   </div>
 </template>
@@ -46,7 +86,10 @@
           {value:'orange-id', text:'orange', disabled: true},
           {value:'pear-id', text:'pear'}],
         fruitsSelected: 'apple-id',
-        onOff: false
+        onOff: false,
+        onOffCentered: false,
+        onOffTransitionNone: false,
+        onOffTransition3d: false
       }
     },
     methods: {
@@ -55,6 +98,15 @@
       },
       toggleModal () {
         this.onOff = !this.onOff
+      },
+      toggleCenteredModal () {
+        this.onOffCentered = !this.onOffCentered
+      },
+      toggleTransitionNoneModal () {
+        this.onOffTransitionNone = !this.onOffTransitionNone
+      },
+      toggleTransition3dModal () {
+        this.onOffTransition3d = !this.onOffTransition3d
       }
     }
   }
