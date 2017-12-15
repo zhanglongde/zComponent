@@ -78,6 +78,7 @@ const install = function(Vue) {
   Vue.prototype.$toastr = Toastr
   Vue.prototype.$alert = Alert
   Vue.prototype.$confirm = Confirm
+  Vue.prototype.$modal = Modal
 }
 
 export default install

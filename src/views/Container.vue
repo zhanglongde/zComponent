@@ -71,6 +71,7 @@
           footer
         </div>
       </Modal>
+      <button @click="showModal">全局Modal</button>
     </div>
   </div>
 </template>
@@ -107,6 +108,14 @@
       },
       toggleTransition3dModal () {
         this.onOffTransition3d = !this.onOffTransition3d
+      },
+      showModal () {
+        console.log('show modal...')
+        this.$modal({
+          title: 'Title',
+          content: '<p>Content of dialog</p><p>Content of dialog</p>',
+          footer: 'ok cancel'
+        })
       }
     }
   }
