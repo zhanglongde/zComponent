@@ -23,10 +23,12 @@ import Steps from './data-display/steps'
 import Tooltip from './data-display/tooltip'
 
 import {List, ListItem} from './container/list'
-import Modal from './container/modal'
+import $Modal from './container/modal'
+import Modal from './container/modal/confirm'
 import Transfer from './container/transfer'
 import Tree from './container/tree'
 import TreeSelect from './container/tree-select'
+import Card from './container/card'
 
 const components = {
   Icon,
@@ -47,7 +49,8 @@ const components = {
   TreeSelect,
   Transfer,
   Modal,
-  Tooltip
+  Tooltip,
+  Card
 }
 
 const zComponent = {
@@ -78,7 +81,7 @@ const install = function(Vue) {
   Vue.prototype.$toastr = Toastr
   Vue.prototype.$alert = Alert
   Vue.prototype.$confirm = Confirm
-  Vue.prototype.$modal = Modal
+  Vue.prototype.$modal = $Modal
 }
 
 export default install

@@ -19,6 +19,7 @@
       </div>
     </div>
     <div class="by-content">
+      <h2>Modal</h2>
       <div>
         <button @click="toggleModal">Toggle Modal</button>
         <button @click="toggleCenteredModal">Toggle Centered Modal</button>
@@ -73,6 +74,20 @@
       </Modal>
       <button @click="showModal">全局Modal</button>
     </div>
+    <div class="by-content">
+      <h2>卡片</h2>
+      <Card :topImgSrc="'../assets/images/wisdom.png'">Card</Card>
+      <Card class="mt-2" header="header" footer="footer">
+        <div slot="title">title</div>
+        body
+      </Card>
+      <Card class="mt-2" style="width:300px;">
+        <div slot="header">header test</div>
+        <img slot="topImg" src="../assets/images/wisdom.png" alt="..." class="img-responsive">
+        body test
+        <div slot="footer">footer test</div>
+      </Card>
+    </div>
   </div>
 </template>
 <script>
@@ -112,9 +127,17 @@
       showModal () {
         console.log('show modal...')
         this.$modal({
-          title: 'Title',
+          title: '<h1>Title</h1>',
           content: '<p>Content of dialog</p><p>Content of dialog</p>',
-          footer: 'ok cancel'
+          footer: '<Button>OK</Button><Button>Cancel</Button>',
+          onOff: true,
+          isCentered: true,
+          okCallback:function () {
+            console.log('ok')
+          },
+          cancelCallback: function () {
+            console.log('cancel')
+          }
         })
       }
     }

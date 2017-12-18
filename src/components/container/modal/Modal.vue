@@ -2,18 +2,20 @@
   <div class="modal" :class="[{'show': onOff}, transition]" @click="close">
     <div class="modal-dialog" :class="{'modal-dialog-centered': isCentered}">
       <div class="modal-content" @click.stop="">
-        <template>
-          <div class="modal-header">
-            <slot name="header">{{title}}</slot>
+        <template v-if="isDefault">
+          <div class="modal-header" v-html="title">
+            <!--<slot name="header">{{title}}</slot>-->
           </div>
-          <div class="modal-body" v-if="isBody">
-            <slot name="body"></slot>
+          <div class="modal-body" v-html="content">
+            <!--<slot name="body">{{content}}</slot>-->
           </div>
-          <div class="modal-footer" v-if="isFooter">
-            <slot name="footer"></slot>
+          <div class="modal-footer" v-html="footer">
+            <!--<slot name="footer">{{footer}}</slot>-->
           </div>
         </template>
-        <slot></slot>
+        <div v-else>
+          <slot></slot>
+        </div>
       </div>
     </div>
     <div class="modal-backdrop"></div>
@@ -55,6 +57,10 @@
       close () {
         this.onOff = false
         this.$emit('input', this.onOff)
+      },
+      show () {
+        this.onOff = true
+        this.$emit('input', this.onOff)
       }
     },
     computed: {
@@ -67,6 +73,9 @@
       isFooter () {
         return this.$slots.footer !== undefined
       },
+      isDefault () {
+        return this.title || this.content || this.footer
+      }
     },
     watch: {
       value (newValue){

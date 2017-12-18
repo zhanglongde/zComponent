@@ -24,6 +24,9 @@
           </router-link>
         </li>
       </ul>
+      <div>
+        <img src="../assets/images/wechat.jpg" style="width:300px;"/>
+      </div>
     </div>
   </div>
 </template>
