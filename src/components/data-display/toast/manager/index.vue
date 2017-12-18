@@ -1,5 +1,3 @@
-<style src='./style.css'></style>
-
 <template>
   <transition-group
     tag='div'
@@ -17,7 +15,9 @@
     ></vue-toast>
   </transition-group>
 </template>
-
+<style scoped lang="scss">
+  @import "manager.scss";
+</style>
 <script>
 import VueToast from '../toast/index.vue'
 import {isNumber} from '../utils.js'

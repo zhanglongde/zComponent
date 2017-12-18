@@ -1,5 +1,3 @@
-<style src="./style.css"></style>
-
 <template>
   <transition name="vue-toast-opacity">
     <div
@@ -21,7 +19,9 @@
     </div>
   </transition>
 </template>
-
+<style scoped lang="scss">
+  @import "toast.scss";
+</style>
 <script>
 const defaultOptions = {
   theme: 'default', // info warning error success

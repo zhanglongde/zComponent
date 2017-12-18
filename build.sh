@@ -2,9 +2,6 @@
 
 npm run build
 
-echo $1
-echo $2
-
 git add -f dist && git commit -m "$2"
 
 if [ -z "$1" ]

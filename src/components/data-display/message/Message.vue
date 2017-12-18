@@ -1,9 +1,11 @@
 <template>
   <div class="overlay message">
-    <div class="popup">
-      <div class="hd">{{title}}</div>
-      <div class="bd">{{content}}</div>
-    </div>
+    <transition name="bounce">
+      <div v-if="isShow" class="popup">
+        <div class="hd">{{title}}</div>
+        <div class="bd">{{content}}</div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -12,6 +14,7 @@
     name: 'Message',
     data () {
       return {
+        isShow: false
       }
     },
     props: {

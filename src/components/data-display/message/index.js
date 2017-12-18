@@ -16,10 +16,12 @@ let Message = (options = {}) => {
   instance.content = options.content
   instance.timeout = options.timeout || 2000
   instance.callback = options.callback
+  instance.isShow = true
   document.body.appendChild(instance.$el)
 
   const timer = setTimeout(() => {
     clearTimeout(timer)
+    instance.isShow = false
     instance.closeMsg()
   }, instance.timeout + 100)
 }
