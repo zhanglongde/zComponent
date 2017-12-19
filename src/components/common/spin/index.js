@@ -1,2 +1,2 @@
 import Spin from './Spin.vue';
-export default {Spin};
+export default Spin;

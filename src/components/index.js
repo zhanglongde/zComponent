@@ -16,6 +16,7 @@ import Confirm from './data-display/confirm'
 import Slider from './common/slider'
 import Switch from './common/switch'
 import Circle from './common/circle'
+import Spin from './common/spin'
 import DatePicker from './common/flatpickr'
 import TimePicker from './common/timepicker'
 import Badge from './data-display/badge'
@@ -50,7 +51,8 @@ const components = {
   Transfer,
   Modal,
   Tooltip,
-  Card
+  Card,
+  Spin
 }
 
 const zComponent = {
