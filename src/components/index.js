@@ -17,6 +17,7 @@ import Slider from './common/slider'
 import Switch from './common/switch'
 import Circle from './common/circle'
 import Spin from './common/spin'
+import Scroll from './common/scroll'
 import DatePicker from './common/flatpickr'
 import TimePicker from './common/timepicker'
 import Badge from './data-display/badge'
@@ -52,7 +53,8 @@ const components = {
   Modal,
   Tooltip,
   Card,
-  Spin
+  Spin,
+  Scroll
 }
 
 const zComponent = {

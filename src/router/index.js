@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/views/Index'
 import Common from '@/views/Common'
+import Scroll from '@/views/Scroll'
 import DataDisplay from '@/views/DataDisplay'
 import DataEntry from '@/views/DataEntry'
 import Container from '@/views/Container'
@@ -18,7 +19,13 @@ export default new Router({
     {
       path: '/Common',
       name: 'Common',
-      component: Common
+      component: Common,
+      children: []
+    },
+    {
+      path: '/Scroll',
+      name: 'CommonScroll',
+      component: Scroll
     },
     {
       path: '/Data-Display',
