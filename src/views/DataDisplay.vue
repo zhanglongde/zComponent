@@ -23,6 +23,7 @@
       <zButton @click="testPluginAlert">测试alert插件</zButton>
       <zButton @click="testPluginConfirm">测试confirm插件</zButton>
       <zButton @click="testPluginToastr">测试toastr插件</zButton>
+      <zButton @click="closePluginToastr">测试关闭toastr插件</zButton>
     </div>
     <div class="by-content">
       <h2>轻提示</h2>
@@ -96,26 +97,39 @@
       },
       testPluginToastr () {
         this.$toastr('success', 'i am a toastr success', 'hello')
-//        this.$toastr.info({
-//           message:'i am a toastr success',
-//           title: 'hello'
-//        })
-//        this.$toastr.success({
-//           message:'i am a toastr success',
-//           title: 'hello'
-//        })
-//        this.$toastr.warning({
-//           message:'i am a toastr success',
-//           title: 'hello'
-//        })
+        this.$toastr(
+          { title: 'normal id:111', id: 111,
+            msg: 'normal msg',
+            clickClose: false,
+            timeout: 100000,
+            position: 'toast-top-right' })
 
-        this.$toastr('add',
-          { title: 'Heyy',
-            msg: '',
+        this.$toastr(
+          { title: 'error',
+            msg: 'error msg',
+            clickClose: false,
+            timeout: 10000,
+            position: 'toast-top-center',
+            type: 'error' })
+
+        this.$toastr(
+          { title: 'warning',
+            msg: 'wanrning msg',
+            clickClose: false,
+            timeout: 10000,
+            position: 'toast-bottom-full-width',
+            type: 'warning' })
+
+        this.$toastr(
+          { title: 'info',
+            msg: 'info msg',
             clickClose: false,
             timeout: 10000,
             position: 'toast-top-left',
             type: 'info' })
+      },
+      closePluginToastr () {
+        this.$toastr({ type: 'close', id: 111})
       },
       resetOptions() {
         this.$refs.toast.setOptions({

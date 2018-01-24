@@ -1,0 +1,111 @@
+$toastr-item-width: 300px;
+.toast-container {
+  position: fixed;
+  z-index: 999999;
+  color: #FFFFFF;
+  pointer-events: none;
+
+  & > :hover {
+    box-shadow: 0 0 12px #000000;
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  & > div {
+    width: $toastr-item-width;
+    position: relative;
+    overflow: hidden;
+    margin: 0 0 6px;
+    padding: 15px 15px 15px 50px;
+
+    border-radius: 3px;
+    box-shadow: 0 0 12px #999999;
+    opacity: 0.8;
+
+    pointer-events: auto;
+  }
+
+  .toast-title {
+    font-weight: bold;
+  }
+  .toast-message {
+    word-wrap: break-word;
+  }
+}
+
+/*定位*/
+.toast-top-center {
+  top: 6px;
+  right: 0;
+  width: 100%;
+}
+.toast-bottom-center {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-top-full-width {
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-bottom-full-width {
+  bottom: -6px;
+  right: 0;
+  width: 100%;
+}
+.toast-top-left {
+  top: 12px;
+  left: 12px;
+}
+.toast-top-right {
+  top: 12px;
+  right: 12px;
+}
+.toast-bottom-right {
+  right: 12px;
+  bottom: 6px;
+}
+.toast-bottom-left {
+  bottom: 6px;
+  left: 12px;
+}
+.toast-container.toast-top-center > div,
+.toast-container.toast-bottom-center > div {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+//宽度全屏
+.toast-container.toast-top-full-width > div,
+.toast-container.toast-bottom-full-width > div {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+//.toast-container.toast-top-auto-width > div,
+//.toast-container.toast-bottom-auto-width > div {
+//  width: auto;
+//}
+
+/*风格*/
+.toast {
+  background-color: #030303;
+  top: initial;
+}
+.toast-normal {
+  color:#222;
+  background-color: #F9EDBE;
+  border: 1px solid #F0C36D;
+}
+.toast-success {
+  background-color: #51A351;
+}
+.toast-error {
+  background-color: #BD362F;
+}
+.toast-info {
+  background-color: #2F96B4;
+}
+.toast-warning {
+  background-color: #F89406;
+}

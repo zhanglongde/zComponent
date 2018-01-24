@@ -1,5 +1,5 @@
-import notification from './components/wrapper.vue'
-import {extend} from 'lodash'
+import notification from './component/wrapper.vue'
+import {extend, isPlainObject} from 'lodash'
 import Vue from 'vue'
 
 let newVm = null // 单例
@@ -12,7 +12,7 @@ let newVm = null // 单例
 function GetInstance (options) {
     const defaultOptions = {
         defaultPosition: 'toast-bottom-right',
-        defaultType: 'success',
+        defaultType: 'normal',
         defaultTimeout: 10000
     }
 
@@ -39,17 +39,24 @@ function GetInstance (options) {
  * @constructor
  */
 let Toastr = function (type, message, title) {
-  if (message === undefined) {
-    console.warn('Vue-Toastr: Warning you must specify a message')
+  if (type === undefined) {
+    console.warn('toastr: Warning you must specify a type or object')
     return
   }
 
   let vm = newVm || GetInstance({
     defaultPosition: 'toast-bottom-left',
-    defaultType: 'info',
+    defaultType: 'normal',
     defaultTimeout: 1000
   })
   newVm = vm
+
+  if (isPlainObject(type)) {
+    if (type.hasOwnProperty('id') && type.type === 'close') {
+      return vm.close(type)
+    }
+    return vm.add(type)
+  }
 
   switch (type) {
     case 'success':
@@ -64,8 +71,11 @@ let Toastr = function (type, message, title) {
     case 'info':
       vm.info(message, title)
       break
-    case 'add':
-      vm.Add(message)
+    case 'close':
+      vm.close(message, title)
+      break
+    default:
+      vm.Add(type)
       break
   }
 }

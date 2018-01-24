@@ -1,14 +1,12 @@
 <template>
-    <div v-bind:class="'toast toast-' + data.type" style="display: block;" @click="clicked()" v-on:mouseover="onMouseOver" v-on:mouseout="onMouseOut" >
-        <div class="toast-title" v-html="data.title">
-        </div>
-        <div class="toast-message" v-html="data.msg">
-        </div>
+    <div :class="['toast', 'toast-' + data.type]" @click="clicked" @mouseover="onMouseOver" @mouseout="onMouseOut" >
+        <div class="toast-title" v-html="data.title"></div>
+        <div class="toast-message" v-html="data.msg"></div>
     </div>
 </template>
 <script>
     export default {
-        name: 'vue-toastr',
+        name: 'toastr',
         props: ['data'],
         created () {
             if (this.data.timeout !== undefined && this.data.timeout !== 0) {
@@ -58,7 +56,7 @@
             close () {
                 // if toast not manuel closed.
                 if (this.$parent !== null) {
-                    this.$parent.Close(this.data)
+                    this.$parent.close(this.data)
                 }
             }
         }
