@@ -96,37 +96,37 @@
         })
       },
       testPluginToastr () {
-        this.$toastr('success', 'i am a toastr success', 'hello')
+//        this.$toastr('success', 'i am a toastr success', 'hello')
         this.$toastr(
           { title: 'normal id:111', id: 111,
             msg: 'normal msg',
-            clickClose: false,
-            timeout: 100000,
+            clickClose: true,
+            timeout: 3000,
             position: 'toast-top-right' })
 
-        this.$toastr(
-          { title: 'error',
-            msg: 'error msg',
-            clickClose: false,
-            timeout: 10000,
-            position: 'toast-top-center',
-            type: 'error' })
-
-        this.$toastr(
-          { title: 'warning',
-            msg: 'wanrning msg',
-            clickClose: false,
-            timeout: 10000,
-            position: 'toast-bottom-full-width',
-            type: 'warning' })
-
-        this.$toastr(
-          { title: 'info',
-            msg: 'info msg',
-            clickClose: false,
-            timeout: 10000,
-            position: 'toast-top-left',
-            type: 'info' })
+//        this.$toastr(
+//          { title: 'error',
+//            msg: 'error msg',
+//            clickClose: false,
+//            timeout: 10000,
+//            position: 'toast-top-center',
+//            type: 'error' })
+//
+//        this.$toastr(
+//          { title: 'warning',
+//            msg: 'wanrning msg',
+//            clickClose: false,
+//            timeout: 10000,
+//            position: 'toast-bottom-full-width',
+//            type: 'warning' })
+//
+//        this.$toastr(
+//          { title: 'info',
+//            msg: 'info msg',
+//            clickClose: false,
+//            timeout: 10000,
+//            position: 'toast-top-left',
+//            type: 'info' })
       },
       closePluginToastr () {
         this.$toastr({ type: 'close', id: 111})
