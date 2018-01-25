@@ -1,8 +1,9 @@
 <template>
-  <div>
-    <div :class="['toast-container', position]" v-for="position in positions">
-      <template v-for="(optionsArray, index) in list">
-        <Toastr :data="optionsArray" :key="index" v-if="optionsArray.position === position"></Toastr>
+  <div v-if="isManager" class="toastr-container-wrapper">
+    <div v-for="position in positions" v-if="isPosition(position)" :class="['toast-container', position]">
+      <template v-for="(optionsObject, index) in list">
+        <!--<div style="color:#000;">{{optionsObject}}{{index}}</div>-->
+        <Toastr :item="optionsObject" :key="index" v-if="optionsObject.position === position"></Toastr>
       </template>
     </div>
   </div>
@@ -11,7 +12,7 @@
   @import "toastr.scss";
 </style>
 <script>
-  import Toastr from './toastr.vue'
+  import Toastr from './Toastr.vue'
   export default {
     name: 'ToastrWrapper',
     components: {
@@ -19,11 +20,19 @@
     },
     data () {
       return {
-        positions: ['toast-top-right', 'toast-bottom-right', 'toast-bottom-left', 'toast-top-left', 'toast-top-full-width', 'toast-bottom-full-width', 'toast-top-center', 'toast-bottom-center'],
+        positions: ['toast-top-right', 'toast-bottom-right', 'toast-bottom-left', 'toast-top-left', 'toast-top-full-width', 'toast-bottom-full-width', 'toast-top-auto-width', 'toast-bottom-auto-width', 'toast-top-center', 'toast-bottom-center'],
         list: []
       }
     },
+    computed: {
+      isManager () {
+        return this.list.length > 0
+      }
+    },
     methods: {
+      isPosition (position) {
+        return this.list.some(x => x.position === position)
+      },
       processObjectData (data) {
         // if Object
         if (typeof data === 'object' && data.msg !== undefined) {
@@ -39,31 +48,40 @@
           if (data.closeOnHover === undefined) {
             data.closeOnHover = this.defaultCloseOnHover
           }
+          if (data.id === undefined) {
+//            data.id = new Date().getTime()
+          }
           return data
         }
         // if String
         return {
           msg: data.toString(),
+//          id: new Date().getTime(),
           position: this.defaultPosition,
           type: this.defaultType,
           timeout: this.defaultTimeout,
           closeOnHover: this.defaultCloseOnHover
         }
       },
-      removeToast (data) {
+      removeItemById (id) {
+        let index = this.list.findIndex(x => x.id === id)
+        console.log(index, this.list.map(x => x.id), id)
+        if (index >= 0) {
+          this.list.splice(index, 1)
+          console.log(this.list.map(x => x.id))
+        }
+      },
+//      外部调用
+      close (data) {
+        console.log('%c-----------------------------------------------------------', 'background-color:#85a;color:#fff;font-size:30px;')
+        console.log(data.id)
         if (data.onClosed !== undefined) {
           data.onClosed()
         }
-        let id = data.id
-        let index = this.list.findIndex(x => x.id === id)
-        if (index >= 0) {
-          this.list.splice(index, 1)
-        }
-      },
-      close (data) {
-        this.removeToast(data)
+        this.removeItemById(data.id)
       },
       addToast (data) {
+        console.log(data)
         this.list.push(data)
         if (typeof data.onCreated !== 'undefined') {
           this.$nextTick(() => {

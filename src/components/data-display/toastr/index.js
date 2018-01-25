@@ -1,8 +1,14 @@
-import notification from './component/wrapper.vue'
-import {extend, isPlainObject} from 'lodash'
 import Vue from 'vue'
+import {extend, isPlainObject} from 'lodash'
+import ToastrManager from './component/ToastrManager.vue'
 
 let newVm = null // 单例
+
+const defaultOptions = {
+  defaultPosition: 'toast-top-right',
+  defaultType: 'normal',
+  defaultTimeout: 10000
+}
 
 /**
  * 获得virtual dom 对象
@@ -10,15 +16,9 @@ let newVm = null // 单例
  * @constructor
  */
 function GetInstance (options) {
-    const defaultOptions = {
-        defaultPosition: 'toast-bottom-right',
-        defaultType: 'normal',
-        defaultTimeout: 10000
-    }
-
     options = extend(defaultOptions, [options || {}])
 
-    const Comp = Vue.extend(notification)
+    const Comp = Vue.extend(ToastrManager)
     const newInstance = new Comp({
       data: {
         defaultPosition: options.defaultPosition,
@@ -32,7 +32,7 @@ function GetInstance (options) {
 }
 
 /**
- * 第二个参数可以是字符串或者配置对象
+ * 第1个参数可以是字符串或者配置对象
  * @param type
  * @param message
  * @param title
@@ -44,18 +44,16 @@ let Toastr = function (type, message, title) {
     return
   }
 
-  let vm = newVm || GetInstance({
-    defaultPosition: 'toast-bottom-left',
-    defaultType: 'normal',
-    defaultTimeout: 1000
-  })
+  let vm = newVm || GetInstance(defaultOptions)
   newVm = vm
 
   if (isPlainObject(type)) {
     if (type.hasOwnProperty('id') && type.type === 'close') {
-      return vm.close(type)
+      vm.close(type)
+      return vm
     }
-    return vm.add(type)
+    vm.add(type)
+    return vm
   }
 
   switch (type) {
@@ -78,6 +76,7 @@ let Toastr = function (type, message, title) {
       vm.Add(type)
       break
   }
+  return vm
 }
 
 export default Toastr

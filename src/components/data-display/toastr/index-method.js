@@ -1,4 +1,4 @@
-import notification from './components/wrapper.vue'
+import ToastrManager from './component/ToastrManager.vue'
 import {extend} from 'lodash'
 import Vue from 'vue'
 
@@ -11,7 +11,7 @@ function toastr (type, options) {
 
     options = extend(defaultOptions, options)
 
-    const Comp = Vue.extend(notification)
+    const Comp = Vue.extend(ToastrManager)
     const vm = new Comp({
         data: {
             defaultPosition: options.defaultPosition,

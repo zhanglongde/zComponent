@@ -1,4 +1,7 @@
 $toastr-item-width: 300px;
+.toastr-container-wrapper{
+  color:#222;
+}
 .toast-container {
   position: fixed;
   z-index: 999999;
@@ -29,7 +32,7 @@ $toastr-item-width: 300px;
   }
 }
 
-/*定位*/
+/*容器定位*/
 .toast-top-center {
   top: 6px;
   right: 0;
@@ -78,12 +81,12 @@ $toastr-item-width: 300px;
   margin-left: auto;
   margin-right: auto;
 }
-//.toast-container.toast-top-auto-width > div,
-//.toast-container.toast-bottom-auto-width > div {
-//  width: auto;
-//}
+.toast-container.toast-top-auto-width > div,
+.toast-container.toast-bottom-auto-width > div {
+  width: auto;
+}
 
-/*风格*/
+/*样式类型*/
 .toast {
   background-color: #030303;
   top: initial;

@@ -96,13 +96,14 @@
         })
       },
       testPluginToastr () {
-//        this.$toastr('success', 'i am a toastr success', 'hello')
-        this.$toastr(
-          { title: 'normal id:111', id: 111,
-            msg: 'normal msg',
-            clickClose: true,
-            timeout: 3000,
-            position: 'toast-top-right' })
+        let date = new Date()
+        this.$toastr('success', 'i am a toastr success', `${date.getHours()} : ${date.getMinutes()} : ${date.getSeconds()}`)
+//        this.$toastr(
+//          { title: 'normal id:111', id: 111,
+//            msg: 'normal msg',
+//            clickClose: true,
+//            timeout: 3000,
+//            position: 'toast-top-right' })
 
 //        this.$toastr(
 //          { title: 'error',
@@ -114,11 +115,18 @@
 //
 //        this.$toastr(
 //          { title: 'warning',
-//            msg: 'wanrning msg',
+//            msg: 'warning msg',
 //            clickClose: false,
-//            timeout: 10000,
+//            timeout: 100000,
 //            position: 'toast-bottom-full-width',
 //            type: 'warning' })
+//        let vm = this.$toastr(
+//          { title: 'normal',
+//            msg: 'normal msg',
+//            clickClose: false,
+//            timeout: 100000,
+//            position: 'toast-top-auto-width'})
+//        console.log(vm)
 //
 //        this.$toastr(
 //          { title: 'info',
