@@ -12,6 +12,7 @@
   @import "toastr.scss";
 </style>
 <script>
+  import {Log} from '@/utils'
   import Toastr from './Toastr.vue'
   export default {
     name: 'ToastrWrapper',
@@ -49,14 +50,14 @@
             data.closeOnHover = this.defaultCloseOnHover
           }
           if (data.id === undefined) {
-//            data.id = new Date().getTime()
+            data.id = new Date().getTime()
           }
           return data
         }
         // if String
         return {
           msg: data.toString(),
-//          id: new Date().getTime(),
+          id: new Date().getTime(),
           position: this.defaultPosition,
           type: this.defaultType,
           timeout: this.defaultTimeout,
@@ -65,23 +66,20 @@
       },
       removeItemById (id) {
         let index = this.list.findIndex(x => x.id === id)
-        console.log(index, this.list.map(x => x.id), id)
+        Log(index, this.list.map(x => x.id), id)
         if (index >= 0) {
           this.list.splice(index, 1)
-          console.log(this.list.map(x => x.id))
+          Log(this.list.map(x => x.id))
         }
       },
 //      外部调用
       close (data) {
-        console.log('%c-----------------------------------------------------------', 'background-color:#85a;color:#fff;font-size:30px;')
-        console.log(data.id)
         if (data.onClosed !== undefined) {
           data.onClosed()
         }
         this.removeItemById(data.id)
       },
       addToast (data) {
-        console.log(data)
         this.list.push(data)
         if (typeof data.onCreated !== 'undefined') {
           this.$nextTick(() => {
